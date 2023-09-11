@@ -1,0 +1,32 @@
+﻿@page
+@using PrøveEksamen.Models;
+@model PrøveEksamen.Pages.BankModel
+@{
+}
+
+
+<table class="table" style="width:300px">
+    <thead>
+        <tr>Bank Navn</tr>
+    </thead>
+        @foreach(Bank b in BankModel.Banks)
+        {
+            <tr>
+            <td><a asp-page="/Konto" asp-route-id="@b.Id">@b.Name</a> </td>
+            </tr>
+
+        @if (b.KontoList != null)
+        {
+            <td>
+            @foreach (Konto k in b.KontoList)
+            {
+
+                    <h1>@k.Ejer @k.Beloeb</h1>
+                        
+                        <br/>
+
+            }
+            </td>
+        }
+    }
+</table>
